@@ -5,7 +5,7 @@ import Button from '@/components/forms/button/button'
 export default function GameCard() {
     return (
         <div className={styles.gamecard}>
-            <Image src='/products/valorant.jpg' height={145} width={300} />
+            <Image className={styles.image} src='/products/valorant.jpg' height={145} width={300} />
             <div className={styles.info}>
                 <h3 className={styles.title}>Counter Strike Global Offensive</h3>
                 <p className={styles.category}>Ação , Estratégia</p>
