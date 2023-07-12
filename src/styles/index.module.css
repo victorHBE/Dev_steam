@@ -7,5 +7,12 @@
     display: flex;
     justify-content: space-between;
     gap: 8px;
+}
 
+.gameconteiner {
+    margin-top: 20px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    gap: 20px;
 }
