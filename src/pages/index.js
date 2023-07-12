@@ -1,5 +1,10 @@
 import Head from 'next/head'
+
+
+//componentes
 import Navbar from '@/components/navbar/navbar'
+import Subtitle from '@/components/tipography/subtitle/subtitle'
+import Container from '@/components/container/container'
 
 export default function Home() {
   return (
@@ -12,7 +17,19 @@ export default function Home() {
       </Head>
       <div>
         <Navbar/>
+
+        <Container>
+            <div>
+              <Subtitle> Promoção </Subtitle>
+            </div>
+            <div>
+              <Subtitle> Outros jogos </Subtitle>
+            </div>
+            
+        </Container>
+
       </div>
+      
     </>
   )
 }
