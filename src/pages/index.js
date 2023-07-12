@@ -1,12 +1,14 @@
 import Head from 'next/head'
 
 import styles from '@/styles/index.module.css'
+import Image from 'next/image'
 
 //componentes
 import Navbar from '@/components/navbar/navbar'
 import Subtitle from '@/components/tipography/subtitle/subtitle'
 import Container from '@/components/container/container'
 import SaleCard from '@/components/cards/saleCard/saleCard'
+import GameCard from '@/components/cards/gameCard/gameCard'
 
 export default function Home() {
   return (
@@ -30,8 +32,11 @@ export default function Home() {
               </div>
               
             </div>
-            <div>
-              <Subtitle className={styles.session}> Outros jogos </Subtitle>
+            <div className={styles.session}>
+              <Subtitle> Outros jogos </Subtitle>
+              <div className={styles.saleconteiner}>
+                <GameCard />
+              </div>
             </div>
             
         </Container>
