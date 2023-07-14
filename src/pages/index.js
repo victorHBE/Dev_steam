@@ -1,7 +1,6 @@
 import Head from 'next/head'
-
+import { useState } from 'react'
 import styles from '@/styles/index.module.css'
-import Image from 'next/image'
 
 //componentes
 import Navbar from '@/components/navbar/navbar'
@@ -11,6 +10,17 @@ import SaleCard from '@/components/cards/saleCard/saleCard'
 import GameCard from '@/components/cards/gameCard/gameCard'
 
 export default function Home() {
+
+  const [cart, setCart] = useState([])
+
+  const handleAddProduct = (info) => {
+      setCart([...cart, info])
+  }
+  
+  const handleRemoveProduct = (pos) => {
+      setCart(cart.filter((obj , posObj) => posObj !== pos))
+  }
+
   return (
     <>
       <Head>
@@ -20,7 +30,7 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Navbar />
+        <Navbar cart={cart} onRemove={handleRemoveProduct} />
 
         <Container>
             <div className={styles.session}>
@@ -32,6 +42,8 @@ export default function Home() {
                   discount={'20%'}
                   fullprice={'R$39,90'}
                   discountprice={'R$24,75'}
+                  onAdd={() => 
+                    handleAddProduct({ title: 'League of Legends', image: 'league-of-legends.jpg' , price: 24.75})}
                 />
                 <SaleCard
                   image={'counter-strike.jpg'}
@@ -39,6 +51,8 @@ export default function Home() {
                   discount={'30%'}
                   fullprice={'R$50,90'}
                   discountprice={'R$35,75'}
+                  onAdd={() => 
+                    handleAddProduct({ title: 'Counter Strike', image: 'counter-strike.jpg' , price: 35.75})}
                 />
                 <SaleCard
                   image={'dota-2.jpg'}
@@ -46,6 +60,8 @@ export default function Home() {
                   discount={'50%'}
                   fullprice={'R$100,90'}
                   discountprice={'R$50,75'}
+                  onAdd={() => 
+                    handleAddProduct({ title: 'Dota 2', image: 'dota-2.jpg' , price: 50.75})}
                 />
               </div>
               
@@ -53,10 +69,10 @@ export default function Home() {
             <div className={styles.session}>
               <Subtitle> Outros jogos </Subtitle>
               <div className={styles.gameconteiner}>
-                <GameCard />
-                <GameCard />
-                <GameCard />
-                <GameCard />
+                <GameCard
+                  onAdd={() => 
+                    handleAddProduct({ title: 'Valorant', image: 'valorant.jpg' , price: 99.00})}
+                />
               </div>
             </div>
             
