@@ -1,0 +1,9 @@
+.cartbutton {
+    
+    cursor: pointer;
+    
+}
+
+.cartbutton:hover {
+    background: #364A63;
+}

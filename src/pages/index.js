@@ -20,15 +20,33 @@ export default function Home() {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <div>
-        <Navbar/>
+        <Navbar />
 
         <Container>
             <div className={styles.session}>
               <Subtitle> Promoção </Subtitle>
               <div className={styles.saleconteiner}>
-                <SaleCard />
-                <SaleCard />
-                <SaleCard />
+                <SaleCard
+                  image={'league-of-legends.jpg'}
+                  title='League of Legends'
+                  discount={'20%'}
+                  fullprice={'R$39,90'}
+                  discountprice={'R$24,75'}
+                />
+                <SaleCard
+                  image={'counter-strike.jpg'}
+                  title='Counter Strike'
+                  discount={'30%'}
+                  fullprice={'R$50,90'}
+                  discountprice={'R$35,75'}
+                />
+                <SaleCard
+                  image={'dota-2.jpg'}
+                  title='Dota 2'
+                  discount={'50%'}
+                  fullprice={'R$100,90'}
+                  discountprice={'R$50,75'}
+                />
               </div>
               
             </div>
@@ -48,4 +66,12 @@ export default function Home() {
       
     </>
   )
+}
+
+SaleCard.defaultProps = {
+  image: 'valorant.jgp',
+  title: 'Valorant',
+  discount:'30%',
+  fullprice:'R$50,90',
+  discountprice: 'R$35,75'
 }
